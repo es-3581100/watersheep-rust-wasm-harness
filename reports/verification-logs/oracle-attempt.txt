@@ -1,0 +1,2 @@
+BLOCKED: no local source .git at /home/sticky-ricky/repos/es-3581100/WaterSheep
+Pinned oracle exit status: 2

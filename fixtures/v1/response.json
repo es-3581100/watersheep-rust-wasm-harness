@@ -1,0 +1,11 @@
+{
+  "model": "synthetic-fixture-v1",
+  "answers": {
+    "binary": {"type":"noul","noul":0.75,"probabilities":{"yes":0.75}},
+    "choice": {"type":"choice","choice":"good","confidence":0.75,"probabilities":{"good":0.75,"review":0.25}},
+    "error": {"type":"choice","error":"unavailable","truncated":true},
+    "multi": {"type":"multi","choices":["a"],"confidence":0.5,"probabilities":{"a":0.5,"b":0.5}},
+    "score": {"type":"score","score":1.25,"confidence":0.75,"probabilities":{"0":0.25,"1":0.75},"legend":{"0":"low","1":"high"},"truncated":true}
+  },
+  "usage": {"input_tokens":17,"output_tokens":0}
+}

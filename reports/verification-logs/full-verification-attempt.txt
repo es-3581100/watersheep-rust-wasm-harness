@@ -1,0 +1,3 @@
+DOMAIN_BOUNDARY_PASS (runtime/docs/fixtures/tool source; audit files excluded)
+BLOCKED: Rust/Cargo missing; cannot grant release acceptance
+Full verification exit status: 2

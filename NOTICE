@@ -1,0 +1,15 @@
+WaterSheep Standalone Rust/WASM Evidence Harness
+Derivative work; independent maintenance by the standalone repository contributors.
+
+Contains code derived from WaterSheep, copyright 2026 Samrat Dutta,
+licensed under Apache License, Version 2.0.
+Original project: https://github.com/SamratDuttaOfficial/WaterSheep
+Source PR and commit: https://github.com/es-3581100/WaterSheep/pull/2
+cdce968a7ed7c6a4f4f983c07438a49702157000
+
+The original WaterSheep NOTICE is available at:
+https://github.com/es-3581100/WaterSheep/blob/cdce968a7ed7c6a4f4f983c07438a49702157000/NOTICE
+This standalone package includes no model weights, training data or datasets.
+The source's model/data-specific third-party notices are not redistributed
+as standalone package content. See PROVENANCE.md for per-file tracing.
+No claim of endorsement by WaterSheep maintainers is made.

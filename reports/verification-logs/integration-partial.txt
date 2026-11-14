@@ -1,0 +1,12 @@
+Python: Python 3.13.5
+Node: v22.16.0
+TypeScript compiler: Version 5.8.3
+$ python3 tools/smoke.py --smoke --skip-rust
+ok  	github.com/es-3581100/watersheep-rust-wasm-harness/go-bridge/cmd/watersheep-supervisor	(cached)
+ok  	github.com/es-3581100/watersheep-rust-wasm-harness/go-bridge/internal/supervisor	(cached)
+{"debug_gates": "PASS", "dev": false, "normal_forward": true, "readiness": "json-probe", "receipt": false, "rust_included": false, "status": "PASS"}
+$ python3 tools/smoke.py --smoke --dev --skip-rust
+ok  	github.com/es-3581100/watersheep-rust-wasm-harness/go-bridge/cmd/watersheep-supervisor	(cached)
+ok  	github.com/es-3581100/watersheep-rust-wasm-harness/go-bridge/internal/supervisor	(cached)
+{"debug_gates": "PASS", "dev": true, "normal_forward": true, "readiness": "json-probe", "receipt": false, "rust_included": false, "status": "PASS"}
+$ node --check tools/test_wasm.mjs

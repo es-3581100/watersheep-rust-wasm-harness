@@ -1,0 +1,39 @@
+name: Standalone Evidence Harness Verification
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  standalone:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@master
+        with:
+          toolchain: '1.93.1'
+          components: rustfmt, clippy
+          targets: wasm32-unknown-unknown
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-go@v5
+        with:
+          go-version: '1.23.x'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Assert locked Rust dependencies
+        run: test -s rust-harness/Cargo.lock
+      - name: Install TypeScript compiler pinned
+        run: npm install --global typescript@5.9.3
+      - name: Install wasm-bindgen-cli matched to Cargo.lock
+        run: |
+          BINDGEN_VERSION="$(python3 tools/resolve_bindgen_version.py rust-harness/Cargo.lock)"
+          cargo install --locked wasm-bindgen-cli --version "$BINDGEN_VERSION"
+      - name: Install JSON Schema validator
+        run: python3 -m pip install jsonschema==4.25.1
+      - name: Standalone checks (Rust / Go / WASM / JS / TS / offline fake)
+        run: bash tools/verify_all.sh
+      - name: All checks must leave lockfile unchanged
+        run: git diff --exit-code -- rust-harness/Cargo.lock

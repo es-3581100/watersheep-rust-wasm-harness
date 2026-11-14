@@ -1,0 +1,8 @@
+.dev/
+**/target/
+rust-harness/pkg-node/
+rust-harness/pkg-web/
+rust-harness/bindings/
+__pycache__/
+*.pyc
+.DS_Store

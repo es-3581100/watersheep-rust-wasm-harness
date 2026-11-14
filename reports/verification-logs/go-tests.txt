@@ -1,0 +1,9 @@
+Go toolchain: go version go1.23.2 linux/amd64
+$ gofmt -l .
+$ go vet ./...
+$ go test ./... -count=1
+ok  	github.com/es-3581100/watersheep-rust-wasm-harness/go-bridge/cmd/watersheep-supervisor	0.003s
+ok  	github.com/es-3581100/watersheep-rust-wasm-harness/go-bridge/internal/supervisor	0.005s
+$ go test -race ./... -count=1
+ok  	github.com/es-3581100/watersheep-rust-wasm-harness/go-bridge/cmd/watersheep-supervisor	1.021s
+ok  	github.com/es-3581100/watersheep-rust-wasm-harness/go-bridge/internal/supervisor	1.018s

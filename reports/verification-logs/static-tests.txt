@@ -1,0 +1,12 @@
+DOMAIN_BOUNDARY_PASS (runtime/docs/fixtures/tool source; audit files excluded)
+test_domain_boundary (test_standalone.StandaloneStaticTests.test_domain_boundary) ... ok
+test_fixture_consistency_and_hash_format (test_standalone.StandaloneStaticTests.test_fixture_consistency_and_hash_format) ... ok
+test_manifest_complete_and_source_pinned (test_standalone.StandaloneStaticTests.test_manifest_complete_and_source_pinned) ... ok
+test_no_executable_authority (test_standalone.StandaloneStaticTests.test_no_executable_authority) ... ok
+test_schema_validation (test_standalone.StandaloneStaticTests.test_schema_validation) ... ok
+test_source_exact_bytes (test_standalone.StandaloneStaticTests.test_source_exact_bytes) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 1.641s
+
+OK
