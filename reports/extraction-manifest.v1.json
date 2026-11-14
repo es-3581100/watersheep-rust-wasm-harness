@@ -1,0 +1,462 @@
+{
+  "additional_provenance": {
+    "create_standalone_NOTICE_and_PROVENANCE": true,
+    "keep_existing_target_LICENSE": true,
+    "note": "Original NOTICE includes model/training-dataset attribution; select notices applicable to redistributed code, preserve original ownership. Do not copy model/data package."
+  },
+  "audit_date_utc": "2026-11-13",
+  "boundary": {
+    "authority": "evidence-only receipts; Go process status observation-only; never executable authorization",
+    "debug": "disabled by default; dev-only and per-call guard must be reviewed",
+    "domain_neutral": true,
+    "excluded_subtree": "kol-watersheep/**",
+    "no_inference_runtime_bundle": true,
+    "normal_route": "POST /v1/systemone"
+  },
+  "checkpoint": {
+    "prior_audit_sha256": "c170e8692f050cbf1468927c1e7bbe367cd0659b0a031551d351e1619104ebc9",
+    "prior_audit_verified_in_staging": true,
+    "prior_manifest_sha256": "3a622174ac08ef296ca2e92055c333ad129d3775d73373b454ee21b9e9c2bb2e",
+    "source_local_worktree_available": false,
+    "source_pinned_git_blobs_verified_against_remote_tree": true,
+    "target_local_worktree_available": false
+  },
+  "counts": {
+    "exclude": 10,
+    "refactor": 11,
+    "unchanged": 6
+  },
+  "dependencies": {
+    "go": [
+      "Go >=1.22",
+      "standard library only",
+      "no go.sum necessary unless dependencies introduced"
+    ],
+    "reproducibility_gaps": [
+      "no Cargo.lock in PR",
+      "no pinned wasm-bindgen-cli tooling",
+      "no checked-in golden request/response/receipt vectors",
+      "no actual wasm-bindgen/browser runtime test in source CI"
+    ],
+    "rust_native": [
+      "Rust stable (edition 2021)",
+      "cargo",
+      "rustfmt",
+      "clippy",
+      "serde 1/derive",
+      "serde_json 1",
+      "sha2 0.10",
+      "hex 0.4",
+      "thiserror 2",
+      "clap 4.5",
+      "reqwest 0.12 (rustls-tls/json)",
+      "tokio 1"
+    ],
+    "rust_wasm": [
+      "rustup target wasm32-unknown-unknown",
+      "wasm-bindgen 0.2",
+      "matching wasm-bindgen-cli",
+      "no-default-features --features wasm",
+      "JS browser import tests and generated pkg/ absent from PR"
+    ],
+    "smoke": [
+      "Python >=3.10 stdlib",
+      "local ports",
+      "fake upstream fixture",
+      "Go executable and Cargo for full smoke"
+    ],
+    "typescript": [
+      "ts-rs 12.0 serde-json-impl",
+      "run cargo test with typescript feature",
+      "check generated declarations and tsc compile; generated bindings absent in PR"
+    ]
+  },
+  "files": [
+    {
+      "audit_classification": "refactor",
+      "changes": "Standalone-path CI; tests native Rust/Go, offline smoke, Node WASM runtime and TS declarations; exact wasm-bindgen version from lock.",
+      "classification": "refactor",
+      "destination_path": ".github/workflows/verify.yml",
+      "destination_sha256": "3c9e666b471ade31c711506dd98e99b871a04b38a5b862e1cc7a1b64062ca17d",
+      "license_attribution": "Apache-2.0; original WaterSheep copyright 2026 Samrat Dutta; see NOTICE and PROVENANCE.md",
+      "path": ".github/workflows/rust-harness.yml",
+      "reason": "Root-path workflow, pin toolchains; add actual WASM JS/TS and fixture gates.",
+      "source_blob_byte_verified_in_staging": false,
+      "source_git_blob_sha1": "75e3240a9950377e0915760e04b22c0ecd8634a4",
+      "source_url": "https://github.com/es-3581100/WaterSheep/blob/cdce968a7ed7c6a4f4f983c07438a49702157000/.github/workflows/rust-harness.yml"
+    },
+    {
+      "audit_classification": "refactor",
+      "changes": "Standalone supervisor documentation and scoped approval names.",
+      "classification": "refactor",
+      "destination_path": "go-bridge/README.md",
+      "destination_sha256": "2cc2bf356ab824376a8fc2d1d0355c0cf887484304c157f33aba673660d19855",
+      "license_attribution": "Apache-2.0; original WaterSheep copyright 2026 Samrat Dutta; see NOTICE and PROVENANCE.md",
+      "path": "go-bridge/README.md",
+      "reason": "Replace source-monorepo launch and downstream assumptions; describe standalone dev boundary.",
+      "source_blob_byte_verified_in_staging": false,
+      "source_git_blob_sha1": "ae446789f6ccee0a0bd210ec067d4c2c8148f59f",
+      "source_url": "https://github.com/es-3581100/WaterSheep/blob/cdce968a7ed7c6a4f4f983c07438a49702157000/go-bridge/README.md"
+    },
+    {
+      "audit_classification": "refactor",
+      "changes": "Standalone Go import and module identity; scoped debug log consent; optional application readiness request; local-only configuration.",
+      "classification": "refactor",
+      "destination_path": "go-bridge/cmd/watersheep-supervisor/main.go",
+      "destination_sha256": "fb68022750e3d3ec6e3db30db311a5bbe507867ca2e2e9cca2fd0513a8c02a5e",
+      "license_attribution": "Apache-2.0; original WaterSheep copyright 2026 Samrat Dutta; see NOTICE and PROVENANCE.md",
+      "path": "go-bridge/cmd/watersheep-supervisor/main.go",
+      "reason": "Change Go import module path; review child launch and dev/smoke-only override.",
+      "source_blob_byte_verified_in_staging": false,
+      "source_git_blob_sha1": "6f77e6a449b62f86faceeb58fee64b0567af9cc0",
+      "source_url": "https://github.com/es-3581100/WaterSheep/blob/cdce968a7ed7c6a4f4f983c07438a49702157000/go-bridge/cmd/watersheep-supervisor/main.go"
+    },
+    {
+      "audit_classification": "refactor",
+      "changes": "Rename Go module to independent es-3581100 standalone repository.",
+      "classification": "refactor",
+      "destination_path": "go-bridge/go.mod",
+      "destination_sha256": "f6bbc19e316183dac1d45a75302137d32780475ea9eef1c2bcf1b057908fe9fb",
+      "license_attribution": "Apache-2.0; original WaterSheep copyright 2026 Samrat Dutta; see NOTICE and PROVENANCE.md",
+      "path": "go-bridge/go.mod",
+      "reason": "Change module from upstream SamratDuttaOfficial/WaterSheep/go-bridge to standalone repository.",
+      "source_blob_byte_verified_in_staging": false,
+      "source_git_blob_sha1": "4eae1866663026bc6ada31757ea00eb24680de32",
+      "source_url": "https://github.com/es-3581100/WaterSheep/blob/cdce968a7ed7c6a4f4f983c07438a49702157000/go-bridge/go.mod"
+    },
+    {
+      "audit_classification": "refactor",
+      "changes": "Standalone ownership identifier; loopback enforcement; operation-scoped debug approval; bounded request handling; child shutdown; optional JSON readiness.",
+      "classification": "refactor",
+      "destination_path": "go-bridge/internal/supervisor/supervisor.go",
+      "destination_sha256": "e9da546f215d60da8754ed57130d72304f2787299928badc2e32f632d196c252",
+      "license_attribution": "Apache-2.0; original WaterSheep copyright 2026 Samrat Dutta; see NOTICE and PROVENANCE.md",
+      "path": "go-bridge/internal/supervisor/supervisor.go",
+      "reason": "Update status module identifier and harden readiness, debug exposure and process handling.",
+      "source_blob_byte_verified_in_staging": false,
+      "source_git_blob_sha1": "e209b4b8b22f9675e892b4208c63639dfed3dd30",
+      "source_url": "https://github.com/es-3581100/WaterSheep/blob/cdce968a7ed7c6a4f4f983c07438a49702157000/go-bridge/internal/supervisor/supervisor.go"
+    },
+    {
+      "audit_classification": "unchanged",
+      "changes": "Previously unchanged reuse candidate upgraded to refactor: use operation-scoped log consent; original test assumption no longer valid.",
+      "classification": "refactor",
+      "destination_path": "go-bridge/internal/supervisor/supervisor_test.go",
+      "destination_sha256": "7acbe57479d8ed2fdc8df6c4d45feb5f1922a774e0caa8ede8a29058456a4fc5",
+      "license_attribution": "Apache-2.0; original WaterSheep copyright 2026 Samrat Dutta; see NOTICE and PROVENANCE.md",
+      "path": "go-bridge/internal/supervisor/supervisor_test.go",
+      "reason": "Domain-neutral unit tests for status ownership, debug approval and log-ring buffer.",
+      "source_blob_byte_verified_in_staging": false,
+      "source_git_blob_sha1": "7b0d7a39ccfd750b25f5f3bf002d972eda5d018d",
+      "source_url": "https://github.com/es-3581100/WaterSheep/blob/cdce968a7ed7c6a4f4f983c07438a49702157000/go-bridge/internal/supervisor/supervisor_test.go"
+    },
+    {
+      "audit_classification": "exclude",
+      "changes": "Excluded: entire source integration subtree prohibited",
+      "classification": "exclude",
+      "destination_path": null,
+      "license_attribution": "No source code redistributed",
+      "path": "kol-watersheep/.gitignore",
+      "reason": "Entire application-specific integration subtree prohibited.",
+      "source_git_blob_sha1": "86847de23c58e8e71312110dd1c221605560ca2d",
+      "source_url": "https://github.com/es-3581100/WaterSheep/blob/cdce968a7ed7c6a4f4f983c07438a49702157000/kol-watersheep/.gitignore"
+    },
+    {
+      "audit_classification": "exclude",
+      "changes": "Excluded: entire source integration subtree prohibited",
+      "classification": "exclude",
+      "destination_path": null,
+      "license_attribution": "No source code redistributed",
+      "path": "kol-watersheep/README.md",
+      "reason": "Application-specific documentation prohibited.",
+      "source_git_blob_sha1": "822db60af38884707aeaf35e263d72aa3c66a4a9",
+      "source_url": "https://github.com/es-3581100/WaterSheep/blob/cdce968a7ed7c6a4f4f983c07438a49702157000/kol-watersheep/README.md"
+    },
+    {
+      "audit_classification": "exclude",
+      "changes": "Excluded: entire source integration subtree prohibited",
+      "classification": "exclude",
+      "destination_path": null,
+      "license_attribution": "No source code redistributed",
+      "path": "kol-watersheep/assets/compat_adapter.py",
+      "reason": "Application-specific adapter prohibited.",
+      "source_git_blob_sha1": "0d0cf37536d963fec28b44b43b607d098b5baeaf",
+      "source_url": "https://github.com/es-3581100/WaterSheep/blob/cdce968a7ed7c6a4f4f983c07438a49702157000/kol-watersheep/assets/compat_adapter.py"
+    },
+    {
+      "audit_classification": "exclude",
+      "changes": "Excluded: entire source integration subtree prohibited",
+      "classification": "exclude",
+      "destination_path": null,
+      "license_attribution": "No source code redistributed",
+      "path": "kol-watersheep/assets/environment.yml",
+      "reason": "Application-specific dependency environment prohibited.",
+      "source_git_blob_sha1": "2c6812f2820b824ed29aeb49670354f8a3e4d6b3",
+      "source_url": "https://github.com/es-3581100/WaterSheep/blob/cdce968a7ed7c6a4f4f983c07438a49702157000/kol-watersheep/assets/environment.yml"
+    },
+    {
+      "audit_classification": "exclude",
+      "changes": "Excluded: entire source integration subtree prohibited",
+      "classification": "exclude",
+      "destination_path": null,
+      "license_attribution": "No source code redistributed",
+      "path": "kol-watersheep/assets/kolstack",
+      "reason": "Application-specific launcher/integration prohibited.",
+      "source_git_blob_sha1": "f8805637ffeef825c2c68d92435f5cade8a8bd3d",
+      "source_url": "https://github.com/es-3581100/WaterSheep/blob/cdce968a7ed7c6a4f4f983c07438a49702157000/kol-watersheep/assets/kolstack"
+    },
+    {
+      "audit_classification": "exclude",
+      "changes": "Excluded: entire source integration subtree prohibited",
+      "classification": "exclude",
+      "destination_path": null,
+      "license_attribution": "No source code redistributed",
+      "path": "kol-watersheep/go.mod",
+      "reason": "Application-specific Go module prohibited.",
+      "source_git_blob_sha1": "c8632cccc7a400fae591c268e10f16dda46ad805",
+      "source_url": "https://github.com/es-3581100/WaterSheep/blob/cdce968a7ed7c6a4f4f983c07438a49702157000/kol-watersheep/go.mod"
+    },
+    {
+      "audit_classification": "exclude",
+      "changes": "Excluded: entire source integration subtree prohibited",
+      "classification": "exclude",
+      "destination_path": null,
+      "license_attribution": "No source code redistributed",
+      "path": "kol-watersheep/main.go",
+      "reason": "Application-specific executable prohibited.",
+      "source_git_blob_sha1": "1d0364458e94b9fab9e31b7f1e6ee0946742e58d",
+      "source_url": "https://github.com/es-3581100/WaterSheep/blob/cdce968a7ed7c6a4f4f983c07438a49702157000/kol-watersheep/main.go"
+    },
+    {
+      "audit_classification": "exclude",
+      "changes": "Excluded: entire source integration subtree prohibited",
+      "classification": "exclude",
+      "destination_path": null,
+      "license_attribution": "No source code redistributed",
+      "path": "kol-watersheep/main_test.go",
+      "reason": "Application-specific fixture/test code prohibited.",
+      "source_git_blob_sha1": "7b72c48f620ad8cfc113bc225cc19f2aa8cb8783",
+      "source_url": "https://github.com/es-3581100/WaterSheep/blob/cdce968a7ed7c6a4f4f983c07438a49702157000/kol-watersheep/main_test.go"
+    },
+    {
+      "audit_classification": "exclude",
+      "changes": "Excluded: entire source integration subtree prohibited",
+      "classification": "exclude",
+      "destination_path": null,
+      "license_attribution": "No source code redistributed",
+      "path": "kol-watersheep/tests/test_http_bridge.py",
+      "reason": "Application-specific bridge test prohibited.",
+      "source_git_blob_sha1": "f0ac684503fb34300de36f829090d4af7cebe232",
+      "source_url": "https://github.com/es-3581100/WaterSheep/blob/cdce968a7ed7c6a4f4f983c07438a49702157000/kol-watersheep/tests/test_http_bridge.py"
+    },
+    {
+      "audit_classification": "exclude",
+      "changes": "Excluded: entire source integration subtree prohibited",
+      "classification": "exclude",
+      "destination_path": null,
+      "license_attribution": "No source code redistributed",
+      "path": "kol-watersheep/tests/test_launcher.py",
+      "reason": "Application-specific launcher test prohibited.",
+      "source_git_blob_sha1": "0a0c236efa49dae2977425073ddeb08b2d4f4eb3",
+      "source_url": "https://github.com/es-3581100/WaterSheep/blob/cdce968a7ed7c6a4f4f983c07438a49702157000/kol-watersheep/tests/test_launcher.py"
+    },
+    {
+      "audit_classification": "refactor",
+      "changes": "Update repository metadata and standalone package description; preserve Rust crate name, features, and dependencies.",
+      "classification": "refactor",
+      "destination_path": "rust-harness/Cargo.toml",
+      "destination_sha256": "a6e85865309c5391541928c593fb66f8d50446d99e6b9cade912f59d6877053e",
+      "license_attribution": "Apache-2.0; original WaterSheep copyright 2026 Samrat Dutta; see NOTICE and PROVENANCE.md",
+      "path": "rust-harness/Cargo.toml",
+      "reason": "Package repository metadata currently points to upstream WaterSheep; set standalone provenance/lockfile.",
+      "source_blob_byte_verified_in_staging": false,
+      "source_git_blob_sha1": "4dd66b755c44351e71dc016d85cee438cbccdea5",
+      "source_url": "https://github.com/es-3581100/WaterSheep/blob/cdce968a7ed7c6a4f4f983c07438a49702157000/rust-harness/Cargo.toml"
+    },
+    {
+      "audit_classification": "refactor",
+      "changes": "Replace upstream monorepo and downstream-specific README with independent README and correct commands.",
+      "classification": "refactor",
+      "destination_path": "README.md",
+      "destination_sha256": "39b6c67df6323d50cbac1be1095c9c5dd0db149a6a7939682893a21f95a870c6",
+      "license_attribution": "Apache-2.0; original WaterSheep copyright 2026 Samrat Dutta; see NOTICE and PROVENANCE.md",
+      "path": "rust-harness/README.md",
+      "reason": "Remove named downstream application/matrix, update paths and distinguish audit evidence from permission.",
+      "source_blob_byte_verified_in_staging": false,
+      "source_git_blob_sha1": "ea074ded65566ed22e0ba838f63aff1b885a1ed3",
+      "source_url": "https://github.com/es-3581100/WaterSheep/blob/cdce968a7ed7c6a4f4f983c07438a49702157000/rust-harness/README.md"
+    },
+    {
+      "audit_classification": "unchanged",
+      "changes": "Reused unchanged, byte-identical to pinned Git blob.",
+      "classification": "unchanged",
+      "destination_path": "rust-harness/examples/request.json",
+      "destination_sha256": "0e293ba1c1543774639e22efcd821e0a1680cd50ace668f17ec60c4dc9abc995",
+      "license_attribution": "Apache-2.0; original WaterSheep copyright 2026 Samrat Dutta; see NOTICE and PROVENANCE.md",
+      "path": "rust-harness/examples/request.json",
+      "reason": "Neutral customer-support example; no application-specific data.",
+      "source_blob_byte_verified_in_staging": true,
+      "source_git_blob_sha1": "d017f2e3733376cc168c61bafe5e47b6e15757a4",
+      "source_url": "https://github.com/es-3581100/WaterSheep/blob/cdce968a7ed7c6a4f4f983c07438a49702157000/rust-harness/examples/request.json"
+    },
+    {
+      "audit_classification": "refactor",
+      "changes": "Update $id to independent repository, preserve v1 schema/producer/authority and properties.",
+      "classification": "refactor",
+      "destination_path": "rust-harness/schema/watersheep-harness-receipt-v1.schema.json",
+      "destination_sha256": "5db2f08e72a240ed56895d30508b8dc94b7f40b24520633beb317cc6f23d5701",
+      "license_attribution": "Apache-2.0; original WaterSheep copyright 2026 Samrat Dutta; see NOTICE and PROVENANCE.md",
+      "path": "rust-harness/schema/watersheep-harness-receipt-v1.schema.json",
+      "reason": "Update $id/provenance for standalone; retain v1 wire contract while adding schema validation.",
+      "source_blob_byte_verified_in_staging": false,
+      "source_git_blob_sha1": "40d3a69ef47680db667b575e06a57629de9430c2",
+      "source_url": "https://github.com/es-3581100/WaterSheep/blob/cdce968a7ed7c6a4f4f983c07438a49702157000/rust-harness/schema/watersheep-harness-receipt-v1.schema.json"
+    },
+    {
+      "audit_classification": "refactor",
+      "changes": "Add --dev plus per-call approval to raw --response-out export; preserve original projection/validate behavior.",
+      "classification": "refactor",
+      "destination_path": "rust-harness/src/bin/watersheep-harness.rs",
+      "destination_sha256": "d208a797dbaffedcb0a606c3dfed8546c87c6f327878a095466137e8379c2a96",
+      "license_attribution": "Apache-2.0; original WaterSheep copyright 2026 Samrat Dutta; see NOTICE and PROVENANCE.md",
+      "path": "rust-harness/src/bin/watersheep-harness.rs",
+      "reason": "Review unguarded --response-out raw observation export against per-call approval policy.",
+      "source_blob_byte_verified_in_staging": false,
+      "source_git_blob_sha1": "5d8a58a28f4fc6babc010c8dc7d9162382bf4ee6",
+      "source_url": "https://github.com/es-3581100/WaterSheep/blob/cdce968a7ed7c6a4f4f983c07438a49702157000/rust-harness/src/bin/watersheep-harness.rs"
+    },
+    {
+      "audit_classification": "unchanged",
+      "changes": "Reused unchanged, byte-identical to pinned Git blob.",
+      "classification": "unchanged",
+      "destination_path": "rust-harness/src/client.rs",
+      "destination_sha256": "015b64366464d19168e4951e422c1ab846ae96de938b8d2590b1813d805b2072",
+      "license_attribution": "Apache-2.0; original WaterSheep copyright 2026 Samrat Dutta; see NOTICE and PROVENANCE.md",
+      "path": "rust-harness/src/client.rs",
+      "reason": "Domain-neutral native HTTP transport to WaterSheep-compatible endpoint.",
+      "source_blob_byte_verified_in_staging": true,
+      "source_git_blob_sha1": "d912e99b60fedca94768c0a57bfd95608ad94c92",
+      "source_url": "https://github.com/es-3581100/WaterSheep/blob/cdce968a7ed7c6a4f4f983c07438a49702157000/rust-harness/src/client.rs"
+    },
+    {
+      "audit_classification": "unchanged",
+      "changes": "Reused unchanged, byte-identical to pinned Git blob.",
+      "classification": "unchanged",
+      "destination_path": "rust-harness/src/contracts.rs",
+      "destination_sha256": "66bd21de57fe022d9252cf8ba63c65d88a55788fe4b2a7c5013befad9af2d29b",
+      "license_attribution": "Apache-2.0; original WaterSheep copyright 2026 Samrat Dutta; see NOTICE and PROVENANCE.md",
+      "path": "rust-harness/src/contracts.rs",
+      "reason": "Typed generic System One contracts; BTreeMap and evidence-only authority enum.",
+      "source_blob_byte_verified_in_staging": true,
+      "source_git_blob_sha1": "9d164590c85b2405a3bd9ecce3a8bae9c8a2324c",
+      "source_url": "https://github.com/es-3581100/WaterSheep/blob/cdce968a7ed7c6a4f4f983c07438a49702157000/rust-harness/src/contracts.rs"
+    },
+    {
+      "audit_classification": "unchanged",
+      "changes": "Reused unchanged, byte-identical to pinned Git blob.",
+      "classification": "unchanged",
+      "destination_path": "rust-harness/src/lib.rs",
+      "destination_sha256": "b74aa51cdca680eb4a3a26473f93a8eeac017e8831fcf6cf631cdfa12c80c1f8",
+      "license_attribution": "Apache-2.0; original WaterSheep copyright 2026 Samrat Dutta; see NOTICE and PROVENANCE.md",
+      "path": "rust-harness/src/lib.rs",
+      "reason": "Native/WASM feature-gated exports and shared receipt surface.",
+      "source_blob_byte_verified_in_staging": true,
+      "source_git_blob_sha1": "1c0141ad4b11ef13b9e8656f685444ce58ce8edc",
+      "source_url": "https://github.com/es-3581100/WaterSheep/blob/cdce968a7ed7c6a4f4f983c07438a49702157000/rust-harness/src/lib.rs"
+    },
+    {
+      "audit_classification": "unchanged",
+      "changes": "Reused unchanged, byte-identical to pinned Git blob.",
+      "classification": "unchanged",
+      "destination_path": "rust-harness/src/receipt.rs",
+      "destination_sha256": "951f80ebf120559ce15bb58f4971f209f0e1fa52d25500f77f648cd7fb0d244c",
+      "license_attribution": "Apache-2.0; original WaterSheep copyright 2026 Samrat Dutta; see NOTICE and PROVENANCE.md",
+      "path": "rust-harness/src/receipt.rs",
+      "reason": "Deterministic typed-JSON SHA-256, projection and negative tests; limitations documented below.",
+      "source_blob_byte_verified_in_staging": true,
+      "source_git_blob_sha1": "b528982e4d6b9b94249451f59f185144e72f562f",
+      "source_url": "https://github.com/es-3581100/WaterSheep/blob/cdce968a7ed7c6a4f4f983c07438a49702157000/rust-harness/src/receipt.rs"
+    },
+    {
+      "audit_classification": "unchanged",
+      "changes": "Reused unchanged, byte-identical to pinned Git blob.",
+      "classification": "unchanged",
+      "destination_path": "rust-harness/src/wasm.rs",
+      "destination_sha256": "ff6fc2298325e53edd75d5efb65c5f16706f66804b13a6436172d81ba5fcd0d5",
+      "license_attribution": "Apache-2.0; original WaterSheep copyright 2026 Samrat Dutta; see NOTICE and PROVENANCE.md",
+      "path": "rust-harness/src/wasm.rs",
+      "reason": "Transport-free WASM functions share native Rust receipt builder.",
+      "source_blob_byte_verified_in_staging": true,
+      "source_git_blob_sha1": "99b194606559ab05bd78bfb2701452748a562aa4",
+      "source_url": "https://github.com/es-3581100/WaterSheep/blob/cdce968a7ed7c6a4f4f983c07438a49702157000/rust-harness/src/wasm.rs"
+    },
+    {
+      "audit_classification": "refactor",
+      "changes": "Replace source-relative launcher with deterministic synthetic offline supervisor fake, explicit dev/debug gate checks and native receipt tests.",
+      "classification": "refactor",
+      "destination_path": "tools/smoke.py",
+      "destination_sha256": "019ca8fd054785dbc9ea33e022529eb6c9b2a39c2b36e452ac0007c4fb70f308",
+      "license_attribution": "Apache-2.0; original WaterSheep copyright 2026 Samrat Dutta; see NOTICE and PROVENANCE.md",
+      "path": "tools/pybundle/watersheep_bundle.py",
+      "reason": "Replace upstream root/module expectations, genericize smoke/launch and tighten test-only overrides.",
+      "source_blob_byte_verified_in_staging": false,
+      "source_git_blob_sha1": "492cf0e9f4edec804356097894c1cdef7069f73b",
+      "source_url": "https://github.com/es-3581100/WaterSheep/blob/cdce968a7ed7c6a4f4f983c07438a49702157000/tools/pybundle/watersheep_bundle.py"
+    }
+  ],
+  "not_in_pr_and_out_of_scope": [
+    "watersheep/** inference/training/data",
+    "huggingface/**",
+    "results/**",
+    "scripts/**",
+    "other tools/**",
+    "original repository-wide assets/fixtures"
+  ],
+  "observed_ci": {
+    "conclusion": "success",
+    "coverage": "Rust fmt/clippy/tests; Go fmt/vet/tests; fake-model smoke --dev; wasm32 cargo check",
+    "date_utc": "2026-11-07",
+    "head_sha": "cdce968a7ed7c6a4f4f983c07438a49702157000",
+    "standalone_verification": false,
+    "url": "https://github.com/es-3581100/WaterSheep/actions/runs/42340061172",
+    "workflow": "Rust harness"
+  },
+  "schema": "watersheep.standalone.extraction-manifest/v1",
+  "source": {
+    "base_sha": "aa308f7778a06bad77c1adb3e3109e27bed03736",
+    "changed_files": 27,
+    "head_sha": "cdce968a7ed7c6a4f4f983c07438a49702157000",
+    "pr": "https://github.com/es-3581100/WaterSheep/pull/2",
+    "pr_state_at_audit": "open/unmerged",
+    "repository": "https://github.com/es-3581100/WaterSheep",
+    "source_license_git_blob_sha1": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64",
+    "source_notice_git_blob_sha1": "710b362e15f9abe2bb613c23fb47e8f2e297efc2"
+  },
+  "standalone_status": "STAGED_PARTIAL_NO_LOCAL_SOURCE_OR_RUST_TOOLCHAIN",
+  "status": "READ_ONLY_AUDIT_COMPLETED__EXTRACTION_NOT_PERFORMED",
+  "target": {
+    "desired_local_workspace": "/home/sticky-ricky/repos/es-3581100/watersheep-rust-wasm-harness",
+    "local_branch_created": false,
+    "local_workspace_accessible": false,
+    "remote_changed": false,
+    "remote_main_observed_paths": [
+      "LICENSE"
+    ],
+    "repository": "https://github.com/es-3581100/watersheep-rust-wasm-harness",
+    "staging_path": "/mnt/data/watersheep-rust-wasm-harness",
+    "target_license_matches_source_git_blob_sha1": true
+  },
+  "verification_minimum": [
+    "source file inventory and Git blob IDs match pin",
+    "forbidden domain-specific code/data absent from runtime source and fixtures",
+    "native fmt/clippy/test",
+    "Go fmt/vet/test",
+    "dev and non-dev smoke with synthetic upstream",
+    "JSON Schema validates all golden receipts",
+    "native/CLI/WASM parity for a deterministic canonical pair",
+    "TypeScript declarations compile",
+    "negative tests for answer names and probabilities",
+    "debug/raw-output policy tightened",
+    "no writes to source or Git history"
+  ]
+}

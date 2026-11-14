@@ -1,0 +1,7 @@
+$ git hash-object (6 unchanged)
+rust-harness/examples/request.json d017f2e3733376cc168c61bafe5e47b6e15757a4 MATCH
+rust-harness/src/client.rs d912e99b60fedca94768c0a57bfd95608ad94c92 MATCH
+rust-harness/src/contracts.rs 9d164590c85b2405a3bd9ecce3a8bae9c8a2324c MATCH
+rust-harness/src/lib.rs 1c0141ad4b11ef13b9e8656f685444ce58ce8edc MATCH
+rust-harness/src/receipt.rs b528982e4d6b9b94249451f59f185144e72f562f MATCH
+rust-harness/src/wasm.rs 99b194606559ab05bd78bfb2701452748a562aa4 MATCH

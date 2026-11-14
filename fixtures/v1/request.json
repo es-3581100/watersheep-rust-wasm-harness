@@ -1,0 +1,10 @@
+{
+  "state": {"component":"build.status","attempt":3},
+  "questions": {
+    "binary": {"type":"noul","instructions":"Does the component meet its check?"},
+    "choice": {"type":"choice","instructions":"Which observation applies?","criteria":["good","review"]},
+    "error": {"type":"choice","instructions":"Classify unavailable observation."},
+    "multi": {"type":"multi","instructions":"Which tags apply?","criteria":["a","b"],"threshold":0.5},
+    "score": {"type":"score","instructions":"What scalar reading applies?","criteria":["low","high"]}
+  }
+}

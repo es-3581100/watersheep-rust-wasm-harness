@@ -1,0 +1,78 @@
+{
+  "schema": "watersheep.harness.receipt/v1",
+  "producer": "watersheep-rust-harness",
+  "authority": "evidence-only",
+  "endpoint": "offline://watersheep/v1/systemone",
+  "request_sha256": "9a408cdce23b45bc8e32f8cff4b673b9fae98559ed79d71a8bcc18f546d6e6e9",
+  "response_sha256": "89f796f1d12b472d935a23d2086198440c4424e44af79504c35ccf3c2cbd1f09",
+  "model": "synthetic-fixture-v1",
+  "usage": {
+    "input_tokens": 17,
+    "output_tokens": 0
+  },
+  "decisions": [
+    {
+      "name": "binary",
+      "decision_type": "noul",
+      "status": "ok",
+      "selected": [
+        "yes"
+      ],
+      "scalar": 0.75,
+      "confidence": 0.75,
+      "probabilities": {
+        "no": 0.25,
+        "yes": 0.75
+      }
+    },
+    {
+      "name": "choice",
+      "decision_type": "choice",
+      "status": "ok",
+      "selected": [
+        "good"
+      ],
+      "confidence": 0.75,
+      "probabilities": {
+        "good": 0.75,
+        "review": 0.25
+      }
+    },
+    {
+      "name": "error",
+      "decision_type": "choice",
+      "status": "error",
+      "truncated": true,
+      "error": "unavailable"
+    },
+    {
+      "name": "multi",
+      "decision_type": "multi",
+      "status": "ok",
+      "selected": [
+        "a"
+      ],
+      "confidence": 0.5,
+      "probabilities": {
+        "a": 0.5,
+        "b": 0.5
+      }
+    },
+    {
+      "name": "score",
+      "decision_type": "score",
+      "status": "ok",
+      "scalar": 1.25,
+      "confidence": 0.75,
+      "probabilities": {
+        "0": 0.25,
+        "1": 0.75
+      },
+      "legend": {
+        "0": "low",
+        "1": "high"
+      },
+      "truncated": true
+    }
+  ]
+}
